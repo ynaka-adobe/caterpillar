@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "url": "https://www.caterpillar.com/en.html",
+  "path": "en.html",
+  "timestamp": "2026-03-15T04:54:12.207Z",
+  "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.caterpillar.com/en.html\", waiting until \"domcontentloaded\"\n",
+  "errorStack": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.caterpillar.com/en.html\", waiting until \"domcontentloaded\"\n\n    at processUrl (/home/node/.claude/plugins/cache/excat-marketplace/excat/2.1.1/skills/excat-content-import/scripts/run-bulk-import.js:260:18)\n    at async main (/home/node/.claude/plugins/cache/excat-marketplace/excat/2.1.1/skills/excat-content-import/scripts/run-bulk-import.js:457:22)"
+}

@@ -1,7 +1,7 @@
 header {
-  --logo-width: 40px;
-  --logo-height: 40px;
-  --mega-columns: 4;
+  --logo-width: 100px;
+  --logo-height: 32px;
+  --mega-columns: 3;
 
   display: block;
   position: fixed;
@@ -11,7 +11,14 @@ header {
   z-index: 1000;
   overflow: hidden;
   max-height: var(--header-height);
-  background-color: light-dark(var(--color-light), var(--color-dark));
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+
+  .section {
+    padding: 0;
+  }
 
   ul {
     margin: 0;
@@ -26,6 +33,11 @@ header {
 
   a {
     text-decoration: none;
+    color: var(--color-white);
+  }
+
+  a:hover {
+    color: var(--color-brand);
   }
 
   .btn {
@@ -52,12 +64,18 @@ header {
       border: none;
       padding: 0;
       background-color: transparent;
+      color: var(--color-white);
       height: 100%;
       width: 64px;
+      cursor: pointer;
 
       .icon {
         width: 24px;
         height: 24px;
+      }
+
+      .icon svg {
+        fill: var(--color-white);
       }
 
       .text {
@@ -65,6 +83,14 @@ header {
         width: 0;
         height: 0;
         overflow: hidden;
+      }
+    }
+
+    button:hover {
+      color: var(--color-brand);
+
+      .icon svg {
+        fill: var(--color-brand);
       }
     }
   }
@@ -75,7 +101,8 @@ header {
 
   .menu,
   .mega-menu {
-    padding-bottom: var(--grid-gutter-width);
+    padding-bottom: var(--spacing-l);
+    background-color: var(--color-dark);
 
     .default-content {
       margin: 0;
@@ -89,6 +116,16 @@ header {
       }
     }
 
+    h3 {
+      font-family: var(--heading-font-family);
+      font-size: var(--heading-font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-brand);
+      margin: 0 0 var(--spacing-s);
+      letter-spacing: 0.5px;
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -96,7 +133,17 @@ header {
     }
 
     li {
-      margin-block: 12px;
+      margin-block: 8px;
+    }
+
+    a {
+      font-size: var(--body-font-size-m);
+      color: var(--color-white);
+      transition: color var(--transition-speed) var(--transition-ease);
+    }
+
+    a:hover {
+      color: var(--color-brand);
     }
 
     ul:not(:has(+ *)) {
@@ -106,7 +153,7 @@ header {
     }
 
     .section {
-      margin-block: 24px;
+      margin-block: var(--spacing-l);
     }
 
     &.language {
@@ -157,7 +204,7 @@ header {
     }
 
     .action-wrapper {
-      right: -23px; /* 64 minus waffle icon inset */
+      right: -23px;
     }
   }
 
@@ -174,7 +221,7 @@ header {
     }
 
     > .block-content {
-      border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+      border-bottom: 1px solid var(--color-grey-600);
     }
 
     .action-wrapper {
@@ -201,7 +248,7 @@ header {
     }
 
     .main-nav-item {
-      border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+      border-bottom: 1px solid var(--color-grey-600);
 
       > * {
         max-width: var(--grid-container-width);
@@ -212,6 +259,16 @@ header {
     .main-nav-link {
       display: block;
       line-height: 64px;
+      font-family: var(--body-font-family);
+      font-size: var(--body-font-size-m);
+      font-weight: 600;
+      color: var(--color-white);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .main-nav-link:hover {
+      color: var(--color-brand);
     }
 
     .menu,
@@ -221,7 +278,8 @@ header {
 
     .is-open {
       .main-nav-link {
-        border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+        border-bottom: 1px solid var(--color-grey-600);
+        color: var(--color-brand);
       }
 
       .menu,
@@ -236,13 +294,14 @@ header {
     max-height: initial;
     overflow: initial;
     bottom: 0;
+    background-color: var(--color-dark);
 
     .header-content {
       height: 100%;
     }
 
     .brand-section {
-      border-bottom: 1px solid light-dark(var(--color-gray-200), var(--color-gray-600));
+      border-bottom: 1px solid var(--color-grey-600);
     }
   }
 }
@@ -260,23 +319,27 @@ header {
 
     .menu,
     .mega-menu {
-      background-color: var(--color-shaded);
+      background-color: var(--color-dark);
       padding: var(--spacing-xl) 0;
-      position: absolute;
+      position: fixed;
+      top: var(--header-height);
       left: 0;
       right: 0;
+      border-top: 3px solid var(--color-brand);
 
       &.language {
         display: none;
         max-width: initial;
         margin: 0;
         width: 180px;
-        background-color: var(--color-shaded);
+        background-color: var(--color-dark);
         padding: var(--spacing-xl);
-        position: absolute;
+        position: fixed;
+        top: var(--header-height);
         left: auto;
         right: 0;
         z-index: 1001;
+        border-top: 3px solid var(--color-brand);
       }
     }
 
@@ -286,6 +349,7 @@ header {
         grid-template-columns: repeat(var(--mega-columns), 1fr);
         max-width: var(--grid-container-width);
         margin: 0 auto;
+        gap: var(--spacing-xl);
 
         .section {
           margin-block: initial;
@@ -310,14 +374,36 @@ header {
       .main-nav-list {
         display: flex;
         gap: var(--spacing-l);
+        height: 100%;
+        align-items: center;
       }
 
       .main-nav-item {
         border-bottom: initial;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
 
         > * {
           max-width: initial;
           margin: initial;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background-color: transparent;
+          transition: background-color var(--transition-speed) var(--transition-ease);
+        }
+
+        &:hover::after,
+        &.is-open::after {
+          background-color: var(--color-brand);
         }
 
         &.is-open {

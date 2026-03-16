@@ -1,0 +1,143 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.caterpillar.com/en.html"
+      ],
+      "description": "Caterpillar homepage with hero carousel, product categories, news, and promotional content",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            "section.carousel--hero"
+          ]
+        },
+        {
+          "name": "columns-checkerboard",
+          "instances": [
+            ".teaser--checkerboard"
+          ]
+        },
+        {
+          "name": "cards-quicklinks",
+          "instances": [
+            ".editorial-card--3-col",
+            ".editorial-card--2-col"
+          ]
+        },
+        {
+          "name": "carousel-logos",
+          "instances": [
+            "section.carousel--film-strip-simple"
+          ]
+        },
+        {
+          "name": "hero-banner",
+          "instances": [
+            ".teaser--full-width"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            ".list--content.list--simple"
+          ]
+        },
+        {
+          "name": "cards-resources",
+          "instances": [
+            ".list--no-image.list--col-4"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero Carousel",
+          "selector": "section.carousel.carousel--hero",
+          "style": null,
+          "blocks": [
+            "carousel-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "About Caterpillar",
+          "selector": ".section-container:has(.teaser--checkerboard)",
+          "style": "light-grey",
+          "blocks": [
+            "columns-checkerboard"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Quick Links Cards",
+          "selector": ".section-container:has(.editorial-card--3-col)",
+          "style": "light-grey",
+          "blocks": [
+            "cards-quicklinks"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Our Family of Brands",
+          "selector": ".section-container:has(.carousel--film-strip-simple)",
+          "style": null,
+          "blocks": [
+            "carousel-logos"
+          ],
+          "defaultContent": [
+            ".deg-title:has(h2[aria-label='Our Family of Brands'])"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Cat Products and Services",
+          "selector": ".teaser--full-width",
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Latest News",
+          "selector": ".section-container:has(.list--content.list--simple)",
+          "style": "light-grey",
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            ".deg-title:has(h2[aria-label='Latest News'])",
+            ".teaser--tile-text"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Resource Links",
+          "selector": ".list--no-image.list--col-4",
+          "style": "light-grey",
+          "blocks": [
+            "cards-resources"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Social Media",
+          "selector": ".socialMedia.section-padding",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".socialMedia.section-padding"
+          ]
+        }
+      ]
+    }
+  ]
+}

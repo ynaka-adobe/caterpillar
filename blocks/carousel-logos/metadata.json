@@ -1,0 +1,15 @@
+{
+  "variantName": "carousel-logos",
+  "baseBlock": "carousel",
+  "purpose": "brand-logos",
+  "colorScheme": "light",
+  "density": "compact",
+  "imagePattern": "logo",
+  "sourceContext": {
+    "originUrl": "https://www.caterpillar.com/en.html"
+  },
+  "usage": {
+    "pagesUsing": ["/en"]
+  },
+  "created": "2026-03-15T04:30:00.000Z"
+}

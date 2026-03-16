@@ -1,0 +1,15 @@
+{
+  "variantName": "cards-resources",
+  "baseBlock": "cards",
+  "purpose": "resource-links",
+  "colorScheme": "light",
+  "density": "minimal",
+  "imagePattern": "noimg",
+  "sourceContext": {
+    "originUrl": "https://www.caterpillar.com/en.html"
+  },
+  "usage": {
+    "pagesUsing": ["/en"]
+  },
+  "created": "2026-03-15T04:30:00.000Z"
+}

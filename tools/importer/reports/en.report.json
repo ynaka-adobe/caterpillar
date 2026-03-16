@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "http://127.0.0.1:8765/en.html",
+  "path": "en",
+  "timestamp": "2026-03-15T04:55:14.912Z",
+  "title": "",
+  "template": "homepage",
+  "blocks": [
+    "carousel-hero",
+    "columns-checkerboard",
+    "cards-quicklinks",
+    "cards-quicklinks",
+    "carousel-logos",
+    "hero-banner",
+    "cards-news",
+    "cards-resources"
+  ]
+}

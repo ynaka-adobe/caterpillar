@@ -1,0 +1,15 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "purpose": "homepage-hero",
+  "colorScheme": "light",
+  "density": "spacious",
+  "imagePattern": "large",
+  "sourceContext": {
+    "originUrl": "https://www.caterpillar.com/en.html"
+  },
+  "usage": {
+    "pagesUsing": ["/en"]
+  },
+  "created": "2026-03-15T04:30:00.000Z"
+}

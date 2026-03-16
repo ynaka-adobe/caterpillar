@@ -1,0 +1,163 @@
+/* Carousel Logos - Brand logos film strip carousel */
+
+.carousel-logos .carousel-logos-slides-container {
+  position: relative;
+}
+
+.carousel-logos .carousel-logos-slides,
+.carousel-logos .carousel-logos-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-logos .carousel-logos-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-logos .carousel-logos-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-logos .carousel-logos-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-m) 0;
+  width: 100%;
+  min-height: auto;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image picture {
+  position: static;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image picture > img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-content a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-content a img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Slide indicators */
+.carousel-logos .carousel-logos-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+  padding: var(--spacing-m);
+  line-height: 0;
+}
+
+.carousel-logos .carousel-logos-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-grey-400);
+  background-color: transparent;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.carousel-logos .carousel-logos-slide-indicator button:disabled,
+.carousel-logos .carousel-logos-slide-indicator button:hover,
+.carousel-logos .carousel-logos-slide-indicator button:focus-visible {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+/* Navigation buttons */
+.carousel-logos .carousel-logos-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-logos .carousel-logos-navigation-buttons button {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-radius: 50%;
+  padding: 0;
+  border: 1px solid var(--color-grey-200);
+  background-color: var(--color-background);
+  transition: background-color 0.2s;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.carousel-logos .carousel-logos-navigation-buttons button:hover,
+.carousel-logos .carousel-logos-navigation-buttons button:focus-visible {
+  background-color: var(--color-light-grey);
+}
+
+.carousel-logos .carousel-logos-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid var(--color-text);
+  border-bottom: 0;
+  border-left: 0;
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-logos .carousel-logos-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+@media (width >= 600px) {
+  .carousel-logos .carousel-logos-slide .carousel-logos-slide-image picture > img,
+  .carousel-logos .carousel-logos-slide .carousel-logos-slide-content a img {
+    width: 140px;
+  }
+}

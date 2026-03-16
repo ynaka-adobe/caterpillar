@@ -1,0 +1,62 @@
+/* Columns Checkerboard - Side-by-side image + text layout */
+
+.columns-checkerboard > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-checkerboard > div > div {
+  order: 1;
+  padding: var(--spacing-l);
+}
+
+.columns-checkerboard > div > .columns-checkerboard-img-col {
+  order: 0;
+  padding: 0;
+}
+
+.columns-checkerboard > div > .columns-checkerboard-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.columns-checkerboard h2 {
+  font-size: var(--heading-font-size-m);
+  margin: 0 0 var(--spacing-m);
+}
+
+.columns-checkerboard p {
+  font-size: var(--body-font-size-m);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.columns-checkerboard img {
+  width: 100%;
+}
+
+@media (width >= 900px) {
+  .columns-checkerboard > div {
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .columns-checkerboard > div > div {
+    flex: 1;
+    order: unset;
+    padding: var(--spacing-xl) 46px;
+  }
+
+  .columns-checkerboard > div > .columns-checkerboard-img-col {
+    padding: 0;
+  }
+
+  .columns-checkerboard > div > .columns-checkerboard-img-col img {
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+  }
+}

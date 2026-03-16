@@ -1,0 +1,126 @@
+/* Hero Banner - Full-width image with text overlay */
+
+/* Full-bleed container */
+.hero-banner-container .hero-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px;
+  min-height: 300px;
+  background-color: var(--color-dark);
+}
+
+.hero-banner h1,
+.hero-banner h2,
+.hero-banner h3,
+.hero-banner h4,
+.hero-banner h5,
+.hero-banner h6 {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  text-transform: var(--heading-text-transform);
+  line-height: var(--heading-line-height);
+  color: var(--color-white);
+}
+
+.hero-banner h2 {
+  font-size: var(--heading-font-size-m);
+  margin: 0 0 var(--spacing-m);
+}
+
+.hero-banner p {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.2;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-l);
+}
+
+.hero-banner a {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  text-transform: var(--button-text-transform);
+  text-decoration: none;
+  padding: var(--button-padding);
+  border: 1px solid var(--color-brand);
+  border-radius: var(--button-border-radius);
+  background-color: var(--color-brand);
+  color: var(--color-black);
+  transition: var(--button-transition);
+}
+
+.hero-banner a:hover {
+  background-color: var(--color-dark);
+  border-color: var(--color-dark);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* No-image variant */
+.hero-banner.no-image {
+  background-color: var(--color-background);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-banner.no-image h1,
+.hero-banner.no-image h2,
+.hero-banner.no-image h3,
+.hero-banner.no-image h4,
+.hero-banner.no-image h5,
+.hero-banner.no-image h6,
+.hero-banner.no-image p {
+  color: var(--color-text);
+}
+
+/* Background image */
+.hero-banner picture {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  object-fit: cover;
+}
+
+.hero-banner img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure text overlays image */
+.hero-banner > div {
+  position: relative;
+  z-index: 1;
+}
+
+@media (width >= 600px) {
+  .hero-banner {
+    min-height: 350px;
+    padding: 40px 48px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-banner {
+    min-height: 400px;
+    padding: 60px 92px;
+  }
+
+  .hero-banner h2 {
+    font-size: var(--heading-font-size-l);
+  }
+}
