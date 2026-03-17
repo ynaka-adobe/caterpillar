@@ -6,6 +6,7 @@ const { locale } = getConfig();
 
 const HEADER_PATH = '/content/fragments/nav/header';
 const HEADER_ACTIONS = [
+  '/tools/widgets/search',
   '/tools/widgets/scheme',
   '/tools/widgets/language',
   '/tools/widgets/toggle',
@@ -16,6 +17,8 @@ function closeAllMenus() {
   for (const openMenu of openMenus) {
     openMenu.classList.remove('is-open');
   }
+  const header = document.body.querySelector('header');
+  if (header) header.classList.remove('is-search-open');
 }
 
 function docClose(e) {
@@ -86,6 +89,53 @@ function decorateNavToggle(btn) {
   });
 }
 
+function decorateSearch(btn) {
+  const header = document.body.querySelector('header');
+  let searchBar = null;
+
+  function createSearchBar() {
+    searchBar = document.createElement('div');
+    searchBar.className = 'search-bar';
+    const form = document.createElement('form');
+    form.className = 'search-form';
+    form.action = '/en/search/search-results.html';
+    form.method = 'GET';
+    form.addEventListener('submit', (e) => {
+      const input = form.querySelector('input');
+      if (!input.value.trim()) e.preventDefault();
+    });
+
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.name = 'search';
+    input.placeholder = 'Search';
+    input.autocomplete = 'off';
+
+    const submitBtn = document.createElement('button');
+    submitBtn.type = 'submit';
+    submitBtn.className = 'search-submit';
+    submitBtn.setAttribute('aria-label', 'Search');
+    submitBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="icon icon-search">
+      <path d="M8.5,2.25C5.05,2.25,2.25,5.05,2.25,8.5s2.8,6.25,6.25,6.25c1.46,0,2.81-.5,3.88-1.35l3.86,3.86c.29.29.77.29,1.06,0s.29-.77,0-1.06l-3.86-3.86c.84-1.07,1.35-2.42,1.35-3.88,0-3.45-2.8-6.25-6.25-6.25ZM8.5,3.75c2.63,0,4.75,2.12,4.75,4.75s-2.12,4.75-4.75,4.75S3.75,11.13,3.75,8.5,5.87,3.75,8.5,3.75Z" />
+    </svg>`;
+
+    form.append(input, submitBtn);
+    searchBar.append(form);
+    header.append(searchBar);
+    return searchBar;
+  }
+
+  btn.addEventListener('click', () => {
+    if (!searchBar) createSearchBar();
+    const wasSearchOpen = header.classList.contains('is-search-open');
+    closeAllMenus();
+    if (!wasSearchOpen) {
+      header.classList.add('is-search-open');
+      searchBar.querySelector('input').focus();
+    }
+  });
+}
+
 async function decorateAction(header, pattern) {
   const link = header.querySelector(`[href*="${pattern}"]`);
   if (!link) return;
@@ -105,6 +155,7 @@ async function decorateAction(header, pattern) {
   wrapper.append(btn);
   link.parentElement.parentElement.replaceChild(wrapper, link.parentElement);
 
+  if (pattern === '/tools/widgets/search') decorateSearch(btn);
   if (pattern === '/tools/widgets/language') decorateLanguage(btn);
   if (pattern === '/tools/widgets/scheme') decorateScheme(btn);
   if (pattern === '/tools/widgets/toggle') decorateNavToggle(btn);
