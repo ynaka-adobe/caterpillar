@@ -151,7 +151,8 @@ async function decorateAction(header, pattern) {
     btn.append(textSpan);
   }
   const wrapper = document.createElement('div');
-  wrapper.className = `action-wrapper ${icon.classList[1].replace('icon-', '')}`;
+  const iconName = icon?.classList[1]?.replace('icon-', '') || '';
+  wrapper.className = `action-wrapper ${iconName}`.trim();
   wrapper.append(btn);
   link.parentElement.parentElement.replaceChild(wrapper, link.parentElement);
 
